@@ -50,7 +50,7 @@ export default function DashboardPage() {
                     <h1 className="text-3xl font-bold mb-1">
                         {t("welcome")}, <span className="gradient-text">{user.displayName}</span>! 👋
                     </h1>
-                    <p className="text-muted-foreground">Keep up the great work. Your learning journey continues.</p>
+                    <p className="text-muted-foreground">{t("subtitle")}</p>
                 </div>
 
                 {/* Stats Cards */}
@@ -99,7 +99,7 @@ export default function DashboardPage() {
                         </div>
                         <div className="text-2xl font-bold">{progress.level}</div>
                         <div className="text-xs text-muted-foreground mt-1">
-                            {progress.current} / {progress.needed} XP to next
+                            {progress.current} / {progress.needed} {t("xpToNext")}
                         </div>
                     </motion.div>
 
@@ -257,7 +257,7 @@ export default function DashboardPage() {
                         <div className="glass rounded-2xl p-6">
                             <div className="flex items-center gap-2 mb-4">
                                 <Flame className="w-5 h-5 text-orange-400" />
-                                <h2 className="text-lg font-semibold">Streak Calendar</h2>
+                                <h2 className="text-lg font-semibold">{t("streakCalendar")}</h2>
                             </div>
                             <div className="grid grid-cols-7 gap-1.5">
                                 {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
@@ -283,11 +283,11 @@ export default function DashboardPage() {
                             <div className="flex items-center gap-3 mt-4 text-xs text-muted-foreground">
                                 <div className="flex items-center gap-1">
                                     <div className="w-3 h-3 rounded bg-emerald-500/20" />
-                                    Active
+                                    {t("active")}
                                 </div>
                                 <div className="flex items-center gap-1">
                                     <div className="w-3 h-3 rounded bg-secondary/30" />
-                                    Inactive
+                                    {t("inactive")}
                                 </div>
                             </div>
                         </div>

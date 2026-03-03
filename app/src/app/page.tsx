@@ -15,6 +15,9 @@ import {
   ArrowRight,
   Star,
   ChevronRight,
+  Sparkles,
+  GraduationCap,
+  Rocket,
 } from "lucide-react";
 import { TRACKS } from "@/lib/constants";
 import { MOCK_COURSES } from "@/lib/mock-data";
@@ -26,60 +29,59 @@ const stats = [
   { value: "500K+", labelKey: "xpEarned", icon: Zap },
 ];
 
-const features = [
-  {
-    icon: Code,
-    title: "Interactive Coding",
-    description:
-      "Learn by doing with embedded code editors, real-time feedback, and hands-on challenges that deploy to Solana devnet.",
-    gradient: "from-purple-500 to-indigo-600",
-  },
-  {
-    icon: Shield,
-    title: "On-Chain Credentials",
-    description:
-      "Earn verifiable soulbound NFT credentials as you progress. Your achievements live on the Solana blockchain forever.",
-    gradient: "from-emerald-500 to-teal-600",
-  },
-  {
-    icon: Trophy,
-    title: "Gamified Learning",
-    description:
-      "Earn XP, maintain streaks, collect achievements, and climb the leaderboard. Learning has never been this engaging.",
-    gradient: "from-amber-500 to-orange-600",
-  },
-  {
-    icon: Globe,
-    title: "Global Community",
-    description:
-      "Join builders across Latin America and beyond. Learn in Portuguese, Spanish, or English with a vibrant peer community.",
-    gradient: "from-cyan-500 to-blue-600",
-  },
-];
-
-const testimonials = [
-  {
-    name: "Rafael Torres",
-    role: "Solana Developer at Marinade Finance",
-    text: "Superteam Academy took me from zero Solana knowledge to building production dApps in 3 months. The on-chain credentials opened doors I never expected.",
-    avatar: "RT",
-  },
-  {
-    name: "Isabella Souza",
-    role: "Founder, SolBR Protocol",
-    text: "The interactive challenges are brilliant. Instead of watching videos, you're actually writing and deploying code. The gamification keeps you coming back every day.",
-    avatar: "IS",
-  },
-  {
-    name: "Diego Martinez",
-    role: "Security Auditor",
-    text: "The security track is world-class. I found my first real vulnerability after completing the audit course. The credential NFT on my profile helped land my current job.",
-    avatar: "DM",
-  },
-];
-
 export default function HomePage() {
   const t = useTranslations();
+
+  const features = [
+    {
+      icon: Code,
+      title: t("landing.interactiveCoding"),
+      description: t("landing.interactiveCodingDesc"),
+      gradient: "from-purple-500 to-indigo-600",
+    },
+    {
+      icon: Shield,
+      title: t("landing.onChainCredentials"),
+      description: t("landing.onChainCredentialsDesc"),
+      gradient: "from-emerald-500 to-teal-600",
+    },
+    {
+      icon: Trophy,
+      title: t("landing.gamifiedLearning"),
+      description: t("landing.gamifiedLearningDesc"),
+      gradient: "from-amber-500 to-orange-600",
+    },
+    {
+      icon: Globe,
+      title: t("landing.globalCommunity"),
+      description: t("landing.globalCommunityDesc"),
+      gradient: "from-cyan-500 to-blue-600",
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Rafael Torres",
+      role: "Solana Developer @ Marinade Finance",
+      text: t("landing.testimonial1"),
+      avatar: "RT",
+      gradient: "from-purple-600 to-blue-500",
+    },
+    {
+      name: "Isabella Souza",
+      role: "Founder, SolBR Protocol",
+      text: t("landing.testimonial2"),
+      avatar: "IS",
+      gradient: "from-emerald-600 to-teal-500",
+    },
+    {
+      name: "Diego Martinez",
+      role: "Security Auditor",
+      text: t("landing.testimonial3"),
+      avatar: "DM",
+      gradient: "from-amber-600 to-orange-500",
+    },
+  ];
 
   return (
     <div className="overflow-hidden">
@@ -92,6 +94,10 @@ export default function HomePage() {
           <div
             className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl animate-float"
             style={{ animationDelay: "3s" }}
+          />
+          <div
+            className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-gradient-to-br from-purple-500/5 to-emerald-500/5 rounded-full blur-3xl animate-float"
+            style={{ animationDelay: "6s" }}
           />
           {/* Grid pattern */}
           <div
@@ -114,7 +120,7 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-8 text-sm">
               <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
               <span className="text-muted-foreground">
-                Powered by Solana &middot; Open Source
+                {t("common.poweredBy")}
               </span>
             </div>
 
@@ -155,8 +161,8 @@ export default function HomePage() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             {stats.map((stat) => (
-              <div key={stat.labelKey} className="glass rounded-xl p-4 text-center">
-                <stat.icon className="w-5 h-5 mx-auto mb-2 text-purple-400" />
+              <div key={stat.labelKey} className="glass rounded-xl p-4 text-center group hover:bg-white/5 transition-colors">
+                <stat.icon className="w-5 h-5 mx-auto mb-2 text-purple-400 group-hover:scale-110 transition-transform" />
                 <div className="text-2xl sm:text-3xl font-bold text-white">
                   {stat.value}
                 </div>
@@ -173,13 +179,23 @@ export default function HomePage() {
       <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Choose Your{" "}
-              <span className="gradient-text">Learning Path</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Structured tracks designed to take you from beginner to expert in specific Solana domains.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs mb-4">
+                <GraduationCap className="w-3.5 h-3.5 text-purple-400" />
+                <span className="text-muted-foreground">6 {t("common.coursesAvailable")}</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                {t("landing.choosePath")}{" "}
+                <span className="gradient-text">{t("landing.learningPath")}</span>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                {t("landing.pathDescription")}
+              </p>
+            </motion.div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -193,12 +209,14 @@ export default function HomePage() {
               >
                 <Link
                   href={`/courses?track=${track.id}`}
-                  className="group block p-6 rounded-2xl card-hover"
+                  className="group block p-6 rounded-2xl card-hover relative overflow-hidden"
                   style={{
                     background: `linear-gradient(135deg, ${track.color}08 0%, ${track.color}03 100%)`,
                     border: `1px solid ${track.color}20`,
                   }}
                 >
+                  <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"
+                    style={{ backgroundColor: track.color }} />
                   <div
                     className="w-10 h-10 rounded-lg mb-4 flex items-center justify-center"
                     style={{ backgroundColor: `${track.color}15` }}
@@ -217,10 +235,10 @@ export default function HomePage() {
                         .toLowerCase()
                         .includes(track.id.split("-")[0])
                     ).length}{" "}
-                    courses available
+                    {t("common.coursesAvailable")}
                   </p>
                   <div className="flex items-center gap-1 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    Start learning <ChevronRight className="w-4 h-4" />
+                    {t("common.startLearningPath")} <ChevronRight className="w-4 h-4" />
                   </div>
                 </Link>
               </motion.div>
@@ -233,27 +251,38 @@ export default function HomePage() {
       <section className="py-20 relative bg-card/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Why{" "}
-              <span className="gradient-text">Superteam Academy?</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Built by the Solana community for the Solana community.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs mb-4">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-muted-foreground">Web3 Learning Platform</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                {t("landing.whyTitle")}{" "}
+                <span className="gradient-text">Superteam Academy?</span>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                {t("landing.whySubtitle")}
+              </p>
+            </motion.div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.map((feature, i) => (
               <motion.div
-                key={feature.title}
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-6 rounded-2xl glass card-hover"
+                className="group p-6 rounded-2xl glass card-hover relative overflow-hidden"
               >
+                <div className="absolute top-0 right-0 w-40 h-40 rounded-full blur-3xl opacity-5 group-hover:opacity-10 transition-opacity bg-gradient-to-br from-purple-500 to-emerald-500" />
                 <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg`}
                 >
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
@@ -273,14 +302,22 @@ export default function HomePage() {
       <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-12">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs mb-3">
+                <Rocket className="w-3.5 h-3.5 text-amber-400" />
+                <span className="text-muted-foreground">Top Rated</span>
+              </div>
               <h2 className="text-3xl sm:text-4xl font-bold mb-2">
-                Featured <span className="gradient-text">Courses</span>
+                {t("landing.featuredTitle")} <span className="gradient-text">{t("landing.featuredCourses")}</span>
               </h2>
               <p className="text-muted-foreground">
-                Start building on Solana today
+                {t("landing.featuredSubtitle")}
               </p>
-            </div>
+            </motion.div>
             <Link
               href="/courses"
               className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-primary hover:bg-primary/10 transition-colors"
@@ -312,24 +349,28 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <BookOpen
-                        className="w-16 h-16 opacity-20"
+                        className="w-16 h-16 opacity-20 group-hover:scale-110 transition-transform"
                         style={{ color: course.trackColor }}
                       />
                     </div>
                     {/* Difficulty Badge */}
                     <div className="absolute top-3 left-3">
                       <span
-                        className={`px-2 py-1 rounded-md text-xs font-medium ${course.difficulty === "beginner"
-                            ? "bg-emerald-500/20 text-emerald-400"
-                            : course.difficulty === "intermediate"
-                              ? "bg-amber-500/20 text-amber-400"
-                              : "bg-red-500/20 text-red-400"
+                        className={`px-2.5 py-1 rounded-md text-xs font-medium backdrop-blur-sm ${course.difficulty === "beginner"
+                          ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/20"
+                          : course.difficulty === "intermediate"
+                            ? "bg-amber-500/20 text-amber-400 border border-amber-500/20"
+                            : "bg-red-500/20 text-red-400 border border-red-500/20"
                           }`}
                       >
-                        {course.difficulty}
+                        {course.difficulty === "beginner"
+                          ? t("courses.filterBeginner")
+                          : course.difficulty === "intermediate"
+                            ? t("courses.filterIntermediate")
+                            : t("courses.filterAdvanced")}
                       </span>
                     </div>
-                    <div className="absolute top-3 right-3 flex items-center gap-1 text-xs text-white/80 bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm">
+                    <div className="absolute top-3 right-3 flex items-center gap-1 text-xs text-white/90 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm border border-white/10">
                       <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                       {course.rating}
                     </div>
@@ -337,7 +378,7 @@ export default function HomePage() {
 
                   <div className="p-5">
                     <div
-                      className="text-xs font-medium mb-2"
+                      className="text-xs font-medium mb-2 uppercase tracking-wider"
                       style={{ color: course.trackColor }}
                     >
                       {course.track}
@@ -349,9 +390,9 @@ export default function HomePage() {
                       {course.description}
                     </p>
 
-                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground pt-3 border-t border-white/5">
                       <div className="flex items-center gap-3">
-                        <span>{course.lessonCount} lessons</span>
+                        <span>{course.lessonCount} {t("courses.lessons").toLowerCase()}</span>
                         <span>{Math.floor(course.duration / 60)}h</span>
                       </div>
                       <span className="font-medium text-emerald-400">
@@ -379,12 +420,18 @@ export default function HomePage() {
       <section className="py-20 relative bg-card/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Trusted by <span className="gradient-text">Builders</span>
-            </h2>
-            <p className="text-muted-foreground">
-              Hear from developers who transformed their careers
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                {t("landing.trustedBy")} <span className="gradient-text">{t("landing.builders")}</span>
+              </h2>
+              <p className="text-muted-foreground">
+                {t("landing.trustSubtitle")}
+              </p>
+            </motion.div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -395,10 +442,11 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-6 rounded-2xl glass"
+                className="p-6 rounded-2xl glass relative overflow-hidden group hover:bg-white/[0.03] transition-colors"
               >
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-5 group-hover:opacity-10 transition-opacity bg-gradient-to-br from-purple-500 to-emerald-500" />
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-emerald-500 flex items-center justify-center text-white font-bold text-sm">
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white font-bold text-sm shadow-lg`}>
                     {item.avatar}
                   </div>
                   <div>
@@ -407,6 +455,11 @@ export default function HomePage() {
                       {item.role}
                     </div>
                   </div>
+                </div>
+                <div className="flex gap-0.5 mb-3">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  ))}
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   &ldquo;{item.text}&rdquo;
@@ -428,16 +481,17 @@ export default function HomePage() {
             style={{ background: "var(--gradient-hero)" }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-emerald-600/10" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-purple-500/10 rounded-full blur-3xl" />
             <div className="relative">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Ready to Build the Future?
+                {t("landing.readyTitle")}
               </h2>
               <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-                Join thousands of developers learning Solana. Your on-chain credentials await.
+                {t("landing.readyDescription")}
               </p>
               <Link
                 href="/courses"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-emerald-500 hover:from-purple-500 hover:to-emerald-400 transition-all shadow-2xl shadow-purple-500/25"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-emerald-500 hover:from-purple-500 hover:to-emerald-400 transition-all shadow-2xl shadow-purple-500/25 hover:-translate-y-0.5"
               >
                 {t("common.startLearning")}
                 <ArrowRight className="w-5 h-5" />

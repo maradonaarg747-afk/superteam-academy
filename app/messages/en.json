@@ -23,7 +23,10 @@
         "free": "Free",
         "darkMode": "Dark Mode",
         "lightMode": "Light Mode",
-        "language": "Language"
+        "language": "Language",
+        "poweredBy": "Powered by Solana · Open Source",
+        "coursesAvailable": "courses available",
+        "startLearningPath": "Start learning"
     },
     "nav": {
         "home": "Home",
@@ -46,6 +49,32 @@
             "credentials": "Credentials Issued",
             "xpEarned": "XP Earned"
         }
+    },
+    "landing": {
+        "choosePath": "Choose Your",
+        "learningPath": "Learning Path",
+        "pathDescription": "Structured tracks designed to take you from beginner to expert in specific Solana domains.",
+        "whyTitle": "Why",
+        "whySubtitle": "Built by the Solana community for the Solana community.",
+        "featuredTitle": "Featured",
+        "featuredCourses": "Courses",
+        "featuredSubtitle": "Start building on Solana today",
+        "trustedBy": "Trusted by",
+        "builders": "Builders",
+        "trustSubtitle": "Hear from developers who transformed their careers",
+        "readyTitle": "Ready to Build the Future?",
+        "readyDescription": "Join thousands of developers learning Solana. Your on-chain credentials await.",
+        "interactiveCoding": "Interactive Coding",
+        "interactiveCodingDesc": "Learn by doing with embedded code editors, real-time feedback, and hands-on challenges that deploy to Solana devnet.",
+        "onChainCredentials": "On-Chain Credentials",
+        "onChainCredentialsDesc": "Earn verifiable soulbound NFT credentials as you progress. Your achievements live on the Solana blockchain forever.",
+        "gamifiedLearning": "Gamified Learning",
+        "gamifiedLearningDesc": "Earn XP, maintain streaks, collect achievements, and climb the leaderboard. Learning has never been this engaging.",
+        "globalCommunity": "Global Community",
+        "globalCommunityDesc": "Join builders across Latin America and beyond. Learn in Portuguese, Spanish, or English with a vibrant peer community.",
+        "testimonial1": "Superteam Academy took me from zero Solana knowledge to building production dApps in 3 months. The on-chain credentials opened doors I never expected.",
+        "testimonial2": "The interactive challenges are brilliant. Instead of watching videos, you're actually writing and deploying code. The gamification keeps you coming back every day.",
+        "testimonial3": "The security track is world-class. I found my first real vulnerability after completing the audit course. The credential NFT on my profile helped land my current job."
     },
     "courses": {
         "title": "Course Catalog",
@@ -70,7 +99,9 @@
         "whatYouLearn": "What You'll Learn",
         "track": "Track",
         "progress": "Progress",
-        "noResults": "No courses found matching your criteria"
+        "noResults": "No courses found matching your criteria",
+        "reviews": "Reviews",
+        "students": "students"
     },
     "lesson": {
         "title": "Lesson",
@@ -95,6 +126,7 @@
     "dashboard": {
         "title": "Dashboard",
         "welcome": "Welcome back",
+        "subtitle": "Keep up the great work. Your learning journey continues.",
         "currentCourses": "Current Courses",
         "nextLesson": "Next Lesson",
         "xpBalance": "XP Balance",
@@ -106,7 +138,12 @@
         "recommendedCourses": "Recommended For You",
         "recentActivity": "Recent Activity",
         "noCourses": "You haven't started any courses yet",
-        "startExploring": "Start Exploring"
+        "startExploring": "Start Exploring",
+        "streakCalendar": "Streak Calendar",
+        "active": "Active",
+        "inactive": "Inactive",
+        "xpToNext": "XP to next",
+        "lessonsProgress": "lessons"
     },
     "profile": {
         "title": "Profile",
@@ -129,6 +166,7 @@
         "subtitle": "Top Solana Builders",
         "rank": "Rank",
         "builder": "Builder",
+        "position": "Position",
         "xp": "XP",
         "level": "Level",
         "streak": "Streak",
