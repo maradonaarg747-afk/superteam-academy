@@ -258,7 +258,7 @@ export default function HomePage() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs mb-4">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="text-muted-foreground">Web3 Learning Platform</span>
+                <span className="text-muted-foreground">{t("landing.web3Platform")}</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 {t("landing.whyTitle")}{" "}
@@ -309,7 +309,7 @@ export default function HomePage() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs mb-3">
                 <Rocket className="w-3.5 h-3.5 text-amber-400" />
-                <span className="text-muted-foreground">Top Rated</span>
+                <span className="text-muted-foreground">{t("landing.topRated")}</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold mb-2">
                 {t("landing.featuredTitle")} <span className="gradient-text">{t("landing.featuredCourses")}</span>
