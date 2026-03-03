@@ -159,7 +159,7 @@ export default function LeaderboardPage() {
                                 <Zap className="w-3 h-3 inline ml-0.5 text-emerald-400" />
                             </div>
                             <div className="col-span-2 text-right text-sm font-medium">
-                                Lvl {entry.level}
+                                {t("level")} {entry.level}
                             </div>
                             <div className="col-span-2 text-right flex items-center justify-end gap-1">
                                 <Flame className="w-3.5 h-3.5 text-orange-400" />

@@ -6,6 +6,7 @@ import { Github, MessageCircle, Send } from "lucide-react";
 
 export function Footer() {
     const t = useTranslations("footer");
+    const tNav = useTranslations("nav");
 
     return (
         <footer className="border-t border-border bg-card/50">
@@ -57,22 +58,22 @@ export function Footer() {
                     {/* Quick Links */}
                     <div>
                         <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-muted-foreground">
-                            Platform
+                            {t("platform")}
                         </h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link href="/courses" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                                    Courses
+                                    {tNav("courses")}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/leaderboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                                    Leaderboard
+                                    {tNav("leaderboard")}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/dashboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                                    Dashboard
+                                    {tNav("dashboard")}
                                 </Link>
                             </li>
                         </ul>
@@ -81,17 +82,17 @@ export function Footer() {
                     {/* Resources */}
                     <div>
                         <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-muted-foreground">
-                            Resources
+                            {t("resources")}
                         </h3>
                         <ul className="space-y-2">
                             <li>
                                 <a href="https://solana.com/docs" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                                    Solana Docs
+                                    {t("solanaDocs")}
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.anchor-lang.com/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                                    Anchor Docs
+                                    {t("anchorDocs")}
                                 </a>
                             </li>
                             <li>
@@ -108,7 +109,7 @@ export function Footer() {
                             {t("newsletter")}
                         </h3>
                         <p className="text-sm text-muted-foreground mb-3">
-                            Stay updated with new courses and features.
+                            {t("newsletterDesc")}
                         </p>
                         <form
                             onSubmit={(e) => e.preventDefault()}
